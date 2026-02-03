@@ -216,22 +216,7 @@ export default function Footer() {
             © {currentYear} Entra al Mundo. Todos los derechos reservados.
           </p>
           
-          <div className="flex gap-6">
-            <a 
-              href="#" 
-              className="text-white/50 hover:text-[#d4af37] text-sm transition-colors duration-300"
-              style={{ fontFamily: 'Open Sans, sans-serif' }}
-            >
-              Términos y Condiciones
-            </a>
-            <a 
-              href="#" 
-              className="text-white/50 hover:text-[#d4af37] text-sm transition-colors duration-300"
-              style={{ fontFamily: 'Open Sans, sans-serif' }}
-            >
-              Política de Privacidad
-            </a>
-          </div>
+          {/* Links removed as requested */}
         </motion.div>
 
         {/* Spiritual message */}

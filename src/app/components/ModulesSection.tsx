@@ -1,8 +1,8 @@
 import { CheckCircle, Lock, Sparkles, Star, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
-import module1Image from 'figma:asset/cf1164c52b3a1752e556056d05f3d01138b7b823.png';
-import module2Image from 'figma:asset/fe3f087c02b2873d08bbe9a1fbbaea47e615411b.png';
-import module3Image from 'figma:asset/b15529c5b757ce9e07d05bdbef5e4f2bcdcc8196.png';
+import module1Image from '../../assets/modulo 1.png';
+import module2Image from '../../assets/modulo 2.png';
+import module3Image from '../../assets/modulo 3.png';
 
 interface ModuleProps {
   number: number;
@@ -16,9 +16,23 @@ interface ModuleProps {
 }
 
 function ModuleCard({ number, title, description, features, price, available, highlighted, image }: ModuleProps) {
+  const getWhatsAppMessage = () => {
+    switch (number) {
+      case 1:
+        return 'Hola, quiero inscribirme al Manual de Limpieza y Protección Energética. ¿Me puedes dar más información?';
+      case 2:
+        return 'Hola, estoy interesado en la Mesa de Sanación Holística Arcángel Rafael. ¿Me puedes dar más detalles?';
+      case 3:
+        return 'Hola, quiero saber más sobre la Mesa Radiónica de Saint Germain. ¿Me puedes dar información?';
+      default:
+        return 'Hola, quiero información sobre los cursos.';
+    }
+  };
+
   const handleEnroll = () => {
     if (available) {
-      window.open(`https://wa.me/573226639527?text=Hola,%20quiero%20inscribirme%20al%20Módulo%20${number}:%20${title}`, '_blank');
+      const message = encodeURIComponent(getWhatsAppMessage());
+      window.open(`https://wa.me/573226639527?text=${message}`, '_blank');
     }
   };
 
@@ -55,13 +69,7 @@ function ModuleCard({ number, title, description, features, price, available, hi
           alt={title}
           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
         />
-        {!available && (
-          <div className="absolute inset-0 bg-[#2e0d4b]/60 backdrop-blur-[2px] z-20 flex items-center justify-center">
-            <div className="p-3 bg-[#2e0d4b] rounded-full border border-[#d4af37]/30">
-              <Lock className="w-8 h-8 text-[#f0d9a8]" />
-            </div>
-          </div>
-        )}
+        {/* El candado ha sido removido para las imágenes de módulos no disponibles */}
       </div>
 
       <div className="flex items-center justify-between mb-4">
@@ -121,7 +129,7 @@ function ModuleCard({ number, title, description, features, price, available, hi
               className="text-[#f0d9a8] uppercase tracking-wide text-sm"
               style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}
             >
-              Inscripciones Cerradas
+              Próximamente
             </p>
           </div>
         )}
@@ -134,14 +142,15 @@ export default function ModulesSection() {
   const modules: ModuleProps[] = [
     {
       number: 1,
-      title: "Fundamentos de Radiestesia",
-      description: "Aprende las bases esenciales de la radiestesia, el arte de detectar energías sutiles y desarrolla tu sensibilidad energética.",
+      title: "Manual de Limpieza y Protección Energética",
+      description: "Transforma tu realidad dominando el poder de la Radiónica y la Radiestesia. Aprende a limpiar, proteger y elevar la vibración de tu aura y tus espacios mediante técnicas prácticas y herramientas exclusivas. Este módulo te guiará en el uso del péndulo para conectar con tu Yo Superior, realizar lecturas profundas de Chakras y Aura, y utilizar gráficos radiónicos para armonizar, limpiar y transmutar cualquier energía discordante.",
       features: [
-        "Introducción a la radiestesia profesional",
-        "Manejo del péndulo y herramientas básicas",
-        "Bases para atender tus primeros consultantes",
-        "Ejercicios prácticos guiados",
-        "Certificado habilitante para ejercer"
+        "Cómo diagnosticar tu aura y detectar bloqueos energéticos",
+        "Técnicas para armonizar la energía de tu hogar y espacios",
+        "Uso de mandalas y gráficos radiónicos exclusivos",
+        "Métodos prácticos de radiestesia con péndulo",
+        "Incluye herramientas listas para usar y acceso a 2 clases online en vivo",
+        "Recibe el manual digital y aprende paso a paso desde el primer día"
       ],
       available: true,
       highlighted: true,
@@ -149,28 +158,31 @@ export default function ModulesSection() {
     },
     {
       number: 2,
-      title: "Radiónica Práctica",
-      description: "Descubre cómo utilizar la radiónica para enviar energía sanadora a distancia y manifestar cambios positivos.",
+      title: "Mesa de Sanación Holística Arcángel Rafael",
+      description: "¿Qué es la Mesa Radiónica para la Sanación Holística? Es una herramienta terapéutica cuántica que combina principios de radiestesia, radiónica, geometría sagrada, fitoenergética, musicoterapia, reiki, feng shui, cromoterapia, física cuántica, hipnoterapia, PNL, arquetipos de sanación, leyes universales y angelología. Está vinculada a la Gran Fraternidad Blanca y las Mónadas Cósmicas, buscando la armonización y sanación integral para atraer salud y plenitud.",
       features: [
-        "Principios de la radiónica cuántica",
-        "Creación de gráficos para clientes",
-        "Emisión de energía a distancia (sin fronteras)",
-        "Cómo cobrar por terapias remotas",
-        "Prácticas de manifestación y abundancia"
+        "Radiestesia y Radiónica",
+        "Psiónica y Geometría Sagrada",
+        "Fitoenergética, Musicoterapia y Reiki",
+        "Feng Shui y Cromoterapia",
+        "Física cuántica, Hipnoterapia y PNL",
+        "Arquetipos de sanación y leyes universales",
+        "Angelología y conexión espiritual",
+        "Herramienta para armonización y sanación integral"
       ],
       available: false,
       image: module2Image
     },
     {
       number: 3,
-      title: "Maestría Vibra Alto",
-      description: "Alcanza el nivel de maestría integrando todas las técnicas avanzadas de radiónica y radiestesia.",
+      title: "Mesa Radiónica de Saint Germain",
+      description: "¿Qué es la Tabla Radiónica? Es una poderosa herramienta energética que utiliza principios de radiónica, radiestesia y geometría sagrada para armonizar y transformar tu vida. Activa frecuencias que llegan al inconsciente, ayudando a borrar registros del pasado, liberar bloqueos emocionales y abrir el camino hacia una vida más plena y equilibrada.",
       features: [
-        "Técnicas avanzadas de medición energética",
-        "Protocolos completos de terapia",
-        "Programación de cristales y objetos",
-        "Estructura de negocio holístico",
-        "Mentoría para terapeutas exitosos"
+        "Armoniza tus relaciones familiares, de pareja, sociales y laborales",
+        "Transmuta patrones limitantes, traumas, miedos y bloqueos",
+        "Atrae nuevas oportunidades: empleo, negocios, compra o venta de propiedades",
+        "Impulsa procesos legales o personales que necesitan avanzar",
+        "Restaura tu equilibrio físico, mental, emocional y espiritual"
       ],
       available: false,
       image: module3Image
@@ -242,7 +254,7 @@ export default function ModulesSection() {
               className="text-white/90"
               style={{ fontFamily: 'Open Sans, sans-serif' }}
             >
-              Todos los módulos incluyen <span className="text-[#d4af37] font-semibold">material descargable</span>, <span className="text-[#d4af37] font-semibold">soporte continuo</span> y guía para <span className="text-[#d4af37] font-semibold">monetizar tu saber</span>.
+              Todos los módulos incluyen <span className="text-[#d4af37] font-semibold">material descargable</span> y <span className="text-[#d4af37] font-semibold">acceso vitalicio</span>. Al completar el programa recibirás tu certificación de asistencia de <span className="text-[#d4af37] font-semibold">Casa Holística Ananda</span>.
             </p>
           </div>
         </motion.div>

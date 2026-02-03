@@ -1,6 +1,7 @@
 import { Heart, Award, Users, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
-import heroLogo from 'figma:asset/0f41631905cbdaeb70a79c7517a6468072b7820d.png';
+import heroLogo from '@/assets/logo.png';
+import angelicaImg from '@/assets/Angelica.png';
 
 export default function AboutSection() {
   const handleContact = () => {
@@ -10,18 +11,18 @@ export default function AboutSection() {
   const achievements = [
     {
       icon: Award,
-      title: "Certificada Internacional",
-      description: "Terapeuta holística con certificaciones en radiónica y radiestesia"
+      title: "Experiencia en prevención y control",
+      description: "5 años acompañando a personas en programas de prevención y manejo de enfermedades crónicas, promoviendo bienestar y calidad de vida."
     },
     {
       icon: Users,
-      title: "+500 Personas Transformadas",
-      description: "Estudiantes y clientes que han elevado su vibración"
+      title: "Acompañamiento en procesos de final de vida",
+      description: "Apoyo humano y profesional a familias y pacientes en el proceso de morir en casa, brindando contención y serenidad."
     },
     {
       icon: Heart,
-      title: "Dedicación Total",
-      description: "15 años de experiencia en sanación energética y desarrollo espiritual"
+      title: "Formación integral en terapias energéticas",
+      description: "Certificada en medicina Sintergética (Politécnico Grancolombiano), radiónica y radiestesia (Escuela de Radiestesia diferencial y efectiva)."
     }
   ];
 
@@ -45,24 +46,30 @@ export default function AboutSection() {
           <div className="inline-block mb-6">
             <img 
               src={heroLogo} 
-              alt="Logo Entra al Mundo" 
+              alt="Logo" 
               className="w-80 h-80 object-contain mx-auto"
             />
           </div>
 
           <h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 text-[#d4af37]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2 text-[#d4af37]"
             style={{ fontFamily: 'Playfair Display, serif', fontWeight: 900 }}
           >
             Angélica Montes
           </h2>
-
-          <p 
-            className="text-lg md:text-xl text-[#f0d9a8] uppercase tracking-wider"
-            style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}
-          >
-            Terapeuta Holística • Maestra de Radiónica
-          </p>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <img 
+              src={angelicaImg}
+              alt="Angélica Montes" 
+              className="w-32 h-32 rounded-full object-cover border-2 border-[#d4af37] shadow-lg"
+            />
+            <span 
+              className="text-lg md:text-xl text-[#f0d9a8] uppercase tracking-wider"
+              style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}
+            >
+              Terapeuta Holística • Maestra de Radiónica
+            </span>
+          </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

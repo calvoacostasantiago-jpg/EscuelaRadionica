@@ -1,6 +1,6 @@
 import { Sparkles, ArrowDown } from 'lucide-react';
 import { motion } from 'motion/react';
-import heroLogo from 'figma:asset/0f41631905cbdaeb70a79c7517a6468072b7820d.png';
+import heroLogo from '@/assets/logo.png';
 
 export default function HeroSection() {
   const handleCTA = () => {
@@ -73,8 +73,8 @@ export default function HeroSection() {
           <div className="inline-block mb-6">
             <img 
               src={heroLogo} 
-              alt="Logo Entra al Mundo" 
-              className="w-24 h-24 md:w-32 md:h-32 object-contain mx-auto transform scale-125"
+              alt="Logo" 
+              className="w-40 h-40 md:w-60 md:h-60 object-contain mx-auto transform scale-125"
             />
           </div>
 
