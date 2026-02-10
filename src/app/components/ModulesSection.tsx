@@ -93,12 +93,20 @@ function ModuleCard({ number, title, description, features, price, available, hi
         {title}
       </h3>
 
+
       <p 
         className="text-white/80 mb-6 leading-relaxed flex-grow"
         style={{ fontFamily: 'Open Sans, sans-serif' }}
       >
         {description}
       </p>
+
+      {number === 1 && price && (
+        <div className="mb-6 flex flex-col items-center">
+          <p className="text-xs text-[#f0d9a8]/80 uppercase tracking-widest mb-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>Valor del Módulo</p>
+          <p className="text-xl text-[#d4af37] tracking-widest" style={{ fontFamily: 'Cinzel, serif', fontWeight: 600 }}>{price}</p>
+        </div>
+      )}
 
       <div className="space-y-3 mb-8">
         {features.map((feature, index) => (
@@ -154,7 +162,8 @@ export default function ModulesSection() {
       ],
       available: true,
       highlighted: true,
-      image: module1Image
+      image: module1Image,
+      price: "$120.000 COP"
     },
     {
       number: 2,
@@ -239,6 +248,53 @@ export default function ModulesSection() {
             <ModuleCard key={module.number} {...module} />
           ))}
         </div>
+
+        {/* Formulario de interés */}
+        <motion.div 
+          className="mt-16 max-w-xl mx-auto bg-gradient-to-br from-[#4a0d7a]/30 to-[#2e0d4b]/30 backdrop-blur-sm border border-[#d4af37]/30 rounded-2xl p-8 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <h3 className="text-2xl text-[#d4af37] mb-4" style={{ fontFamily: 'Cinzel, serif', fontWeight: 700 }}>¿Te interesa algún módulo futuro?</h3>
+          <p className="text-white/80 mb-6" style={{ fontFamily: 'Open Sans, sans-serif' }}>
+            Déjanos tu nombre y correo electrónico y te contactaremos cuando se habilite el módulo.
+          </p>
+          <form className="space-y-4" onSubmit={e => {
+            e.preventDefault();
+            const name = e.target.name.value;
+            const email = e.target.email.value;
+            const message = encodeURIComponent(`Hola, estoy interesado en un módulo futuro.\n\nNombre: ${name}\nCorreo: ${email}`);
+            window.open(`https://wa.me/573226639527?text=${message}`, '_blank');
+            e.target.reset();
+          }}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Nombre"
+              className="w-full px-4 py-3 rounded-lg border border-[#d4af37]/30 bg-[#2e0d4b]/20 text-white focus:border-[#d4af37] focus:ring-2 focus:ring-[#d4af37]"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Correo electrónico"
+              className="w-full px-4 py-3 rounded-lg border border-[#d4af37]/30 bg-[#2e0d4b]/20 text-white focus:border-[#d4af37] focus:ring-2 focus:ring-[#d4af37]"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
+              required
+            />
+            <button
+              type="submit"
+              className="w-full py-3 bg-gradient-to-r from-[#d4af37] to-[#f0d9a8] text-[#2e0d4b] rounded-full uppercase tracking-wide font-bold transition-all duration-300 hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
+            >
+              Notificarme
+            </button>
+          </form>
+          {/* Texto de cambios removido por solicitud del usuario */}
+        </motion.div>
 
         {/* Additional info */}
         <motion.div 

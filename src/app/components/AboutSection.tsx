@@ -175,8 +175,29 @@ export default function AboutSection() {
                 Conecta con Angélica
               </button>
             </motion.div>
+
+            {/* Video Instagram Reel */}
+            <div className="w-full max-w-xs mx-auto mt-8 relative" style={{ position: 'relative', width: '320px', height: '480px' }}>
+              <iframe
+                src="https://www.instagram.com/reel/DNLz06COH_q/embed?utm_source=ig_embed&hidecaption=true"
+                title="Instagram Reel"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  border: 0,
+                  borderRadius: '16px',
+                  background: '#000'
+                }}
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              ></iframe>
+            </div>
           </motion.div>
         </div>
+
 
         {/* Additional info section */}
         <motion.div 
