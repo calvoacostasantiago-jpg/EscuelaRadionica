@@ -34,7 +34,7 @@ export default function Footer() {
     {
       icon: Facebook,
       label: "Facebook",
-      link: "https://facebook.com/entralmundo"
+      link: "https://www.facebook.com/angelica.montesserna"
     },
     {
       icon: Youtube,
