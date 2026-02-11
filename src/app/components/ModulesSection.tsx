@@ -153,6 +153,9 @@ export default function ModulesSection() {
       title: "Manual de Limpieza y Protección Energética",
       description: "Transforma tu realidad dominando el poder de la Radiónica y la Radiestesia. Aprende a limpiar, proteger y elevar la vibración de tu aura y tus espacios mediante técnicas prácticas y herramientas exclusivas. Este módulo te guiará en el uso del péndulo para conectar con tu Yo Superior, realizar lecturas profundas de Chakras y Aura, y utilizar gráficos radiónicos para armonizar, limpiar y transmutar cualquier energía discordante.",
       features: [
+        "Fecha de inicio: 28 de febrero",
+        "Primera clase presencial",
+        "Dos clases virtuales: seguimiento y práctica",
         "Cómo diagnosticar tu aura y detectar bloqueos energéticos",
         "Técnicas para armonizar la energía de tu hogar y espacios",
         "Uso de mandalas y gráficos radiónicos exclusivos",
